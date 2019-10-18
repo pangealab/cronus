@@ -1,16 +1,5 @@
-# Overview
-ServiceNow Python Command-Line-Interface (CLI)
+![Intro](./docs/now-cli.png)
 
-# Synopsis
-The NOW CLI options are as follows:
-
-```
-now [options] <command> <subcommand> [parameters]
-```
-
->Example
-```
-$ now im create-incident --impact “Low” --short-description “Test” --configuration-item “ID123” …
-```
+This project shows you how to set up the **NOW CLI** and use it to interact with a ServiceNow instance either locally from your workstation or from a CI/CD Pipeline like Jenkins
 
 
