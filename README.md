@@ -1,7 +1,5 @@
-# Cronus
-ServiceNow Python Command-Line-Interface (CLI)
-
 # Overview
+ServiceNow Python Command-Line-Interface (CLI)
 
 # Synopsis
 The NOW CLI options are as follows:
