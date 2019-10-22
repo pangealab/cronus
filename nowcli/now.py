@@ -7,19 +7,30 @@ import logging
 import argparse
 import requests
 import urllib3
-from tabulate import tabulate
+
+# Local Modules
+import configure
 
 def main():
-    print("TODO")
+    configure.main()
 
-# Set the top-level parser
-parser = argparse.ArgumentParser(description="ServiceNow Command Line Interface (CLI)")
+# Top Level Parser
+parser = argparse.ArgumentParser(description="ServiceNow (NOW) Command Line Interface (CLI)", prog='now')
+parser.add_argument('-p','--profile', type=str, help='profile')
+parser.add_argument('-c','--configure', type=str, help='configure options')
+parser.add_argument('-x','--socks5', action='store_true', help='use SOCKS5 proxy on localhost port 5555')
 parser.add_argument('-v','--version', action='version', version=__version__)
-parser.add_argument('-s','--server', type=str, help='server')
-parser.add_argument('-t','--type', type=str, choices={'scripts','groups','group-roles','sys-user-roles','users'}, help='script audit report')
-parser.add_argument('-u','--user', type=str, help='username')
-parser.add_argument('-p','--pwd', type=str, help='password')
-parser.add_argument('-x','--socks5', action='store_true', help='Use SOCKS5 proxy on localhost port 5555')
+
+# Commands Parser
+subparsers = parser.add_subparsers(title='commands', description='Valid NOW CLI commands', help='command help')
+
+# IM Command Parser
+im_parser = subparsers.add_parser('im', description='Incident Management Command')
+
+# EM Command Parser
+em_parser = subparsers.add_parser('em', description='Event Management Command')
+
+# Parse Arguments
 args = parser.parse_args()
 
 # Set the entry point
