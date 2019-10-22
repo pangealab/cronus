@@ -13,7 +13,7 @@ def main():
     print("TODO")
 
 # Set the top-level parser
-parser = argparse.ArgumentParser(description="audit a servicenow instance and produce a markdown report")
+parser = argparse.ArgumentParser(description="ServiceNow Command Line Interface (CLI)")
 parser.add_argument('-v','--version', action='version', version=__version__)
 parser.add_argument('-s','--server', type=str, help='server')
 parser.add_argument('-t','--type', type=str, choices={'scripts','groups','group-roles','sys-user-roles','users'}, help='script audit report')
