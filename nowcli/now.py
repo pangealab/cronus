@@ -10,18 +10,30 @@ import urllib3
 
 # Local Modules
 import configure
+import incident
+import event
 
 def main():
-    configure.main()
-
+    if args.cmd == "configure":
+        configure.main()
+    elif args.cmd == "im":
+	    incident.main()
+    elif args.cmd == "em":
+	    event.main()
+    else:
+        exit()
+    
 # Top Level Parser
 parser = argparse.ArgumentParser(description="ServiceNow (NOW) Command Line Interface (CLI)", prog='now')
-# parser.add_argument('configure', type=str, help='configure options')
-# parser.add_argument('-p','--profile', type=str, help='profile')
-# parser.add_argument('-x','--socks5', action='store_true', help='use SOCKS5 proxy on localhost port 5555')
-# parser.add_argument('-v','--version', action='version', version=__version__)
+parser.add_argument('-p','--profile', type=str, help='profile')
+parser.add_argument('-x','--socks5', type=str, help='use SOCKS5 proxy on localhost port 5555')
+parser.add_argument('-v','--version', action='version', version=__version__)
 
-commands_parser = parser.add_subparsers(help='commands')
+# Commands Parser
+commands_parser = parser.add_subparsers(help='commands', dest='cmd')
+
+# Configure Parser
+im_parser = commands_parser.add_parser('configure', help='configure profile')
 
 # IM Parser
 im_parser = commands_parser.add_parser('im', help='incident management')

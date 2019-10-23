@@ -1,2 +1,2 @@
 def main():
-    print("TODO")
+    print("Called Configure...")
