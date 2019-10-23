@@ -4,3 +4,4 @@ argparse
 requests
 urllib3
 tabulate
+configparser

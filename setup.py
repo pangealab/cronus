@@ -20,7 +20,8 @@ DEPENDENCIES = [
     "argparse",
     "requests",
     "urllib3",
-    "tabulate"
+    "tabulate",
+    "configparser"
 ]
 EXCLUDE_FROM_PACKAGES = ["contrib", "docs", "tests*"]
 CURDIR = os.path.abspath(os.path.dirname(__file__))
