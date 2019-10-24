@@ -15,7 +15,7 @@ import event
 
 def main():
     if args.cmd == "configure":
-        configure.main()
+        configure.main(args)
     elif args.cmd == "im":
 	    incident.main()
     elif args.cmd == "em":
@@ -37,11 +37,11 @@ im_parser = commands_parser.add_parser('configure', help='configure profile')
 
 # IM Parser
 im_parser = commands_parser.add_parser('im', help='incident management')
-im_parser.add_argument('create-incident', help='create an incident')
+im_parser.add_argument('get-incidents', help='get incidents')
 
 # EM Parser
 em_parser = commands_parser.add_parser('em', help='event management')
-em_parser.add_argument('create-event', help='create an event')
+em_parser.add_argument('get-events', help='get events')
 
 # Parse Arguments
 args = parser.parse_args()
