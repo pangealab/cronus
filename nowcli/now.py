@@ -9,9 +9,9 @@ import requests
 import urllib3
 
 # Local Modules
-import configure
-import incident
-import event
+import nowcli.configure as configure
+import nowcli.incident as incident
+import nowcli.event as event
 
 def main():
     if args.cmd == "configure":
