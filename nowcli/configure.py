@@ -1,6 +1,7 @@
 import configparser
 import logging
 import os
+import sys
 
 # Set Vars
 USER_HOME = os.path.expanduser("~")
@@ -8,7 +9,8 @@ NOW_DIR = ".now"
 NOW_FILE = "credentials"
 NOW_PATH = USER_HOME + "/" + NOW_DIR
 NOW_CONFIG = NOW_PATH + "/" + NOW_FILE
-NOW_DEFAULT = "default"
+NOW_DEFAULT = "DEFAULT"
+OPTION_NAMES = ['api','http_headers','params','server','username','password']
 
 # Set Logging
 logging.basicConfig(level=logging.INFO)
@@ -28,27 +30,32 @@ def main(args):
         edit_config(args)
 
 def init_config():
-    config = configparser.ConfigParser()
-    config[NOW_DEFAULT] = {
-        'api': '"/api/now/table"',
-        'http_headers': '{"Content-Type":"application/json","Accept":"application/json"}',
-        'params': '"sysparm_limit=10000"'}
+
+    # Initialize the parser with defaults
+    config = configparser.ConfigParser(
+    defaults={'api':'"/api/now/table"',
+              'http_headers':'{"Content-Type":"application/json","Accept":"application/json"}',
+              'params':'"sysparm_limit=10000"',
+               })
     with open(NOW_CONFIG, 'w') as configfile:
-        config.write(configfile)
+        config.write(configfile)               
 
 def edit_config(args):
     config = configparser.ConfigParser()
     config.read(NOW_CONFIG)
 
+    # Edit the DEFAULT section if no profile provided
     if not args.profile:
-        args.profile = NOW_DEFAULT
+        defaults = config.defaults()
+        for key in OPTION_NAMES:
+            if key in defaults:
+                # translation = {39: None}
+                # print('  {:<15} = {!r}'.format(key, defaults[key]).translate(translation))
+                new_value = input(key + " [" + defaults[key] + "]: ")
+                if new_value:
+                    defaults[key]=new_value
+        with open(NOW_CONFIG, 'w') as configfile:
+            config.write(configfile)                       
 
-    if not config.has_section(args.profile):
-        print(args.profile + " section does not exist")
-    else:
-        for key, value in config.items(args.profile):
-            new_value = input(key + " [" + value + "]: ")
-            if new_value:
-                value = new_value
 def create_path():
     os.makedirs(NOW_PATH, exist_ok = True)
