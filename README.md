@@ -16,7 +16,7 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     sudo python3 setup.py install
     ```
 
-    > NOTE: Once the package is deployed to the [PyPI](https://pypi.org) repository you can instal the latest package using the standard *pip3* command (e.g. `pip3 install nowcli`)
+    > NOTE: Once the package is deployed to the [PyPI](https://pypi.org) repository you can install the latest package using the standard *pip3* command (e.g. `pip3 install nowcli`)
 
 * Uninstall Package
 
