@@ -33,7 +33,7 @@ def get_version():
 
 
 setup(
-    name="cronus",
+    name="nowcli",
     version=get_version(),
     author="Anthony Angelo",
     author_email="anthony.angelo@servicenow.com",
