@@ -8,11 +8,6 @@ import argparse
 import requests
 import urllib3
 
-# Local Modules
-import configure
-import incident
-import event
-
 def main():
     if args.cmd == "configure":
         configure.main(args)
