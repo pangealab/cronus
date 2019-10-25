@@ -31,7 +31,6 @@ def get_version():
         version = match.group("version") if match is not None else '"unknown"'
     return str(ast.literal_eval(version))
 
-
 setup(
     name="nowcli",
     version=get_version(),
