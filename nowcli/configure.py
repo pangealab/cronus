@@ -41,6 +41,7 @@ def init_config():
         config.write(configfile)               
 
 def edit_config(args):
+
     config = configparser.ConfigParser()
     config.read(NOW_CONFIG)
 
@@ -49,13 +50,34 @@ def edit_config(args):
         defaults = config.defaults()
         for key in OPTION_NAMES:
             if key in defaults:
-                # translation = {39: None}
-                # print('  {:<15} = {!r}'.format(key, defaults[key]).translate(translation))
                 new_value = input(key + " [" + defaults[key] + "]: ")
                 if new_value:
                     defaults[key]=new_value
         with open(NOW_CONFIG, 'w') as configfile:
-            config.write(configfile)                       
+            config.write(configfile)
+    else:
+        if config.has_section(args.profile):
+            items = config[args.profile]
+            for key in OPTION_NAMES:
+                if key in items:
+                    new_value = input(key + " [" + items[key] + "]: ")
+                    if new_value:
+                        items[key]=new_value
+            with open(NOW_CONFIG, 'w') as configfile:
+                config.write(configfile)
+        else:
+            config.add_section(args.profile)
+            items = config[args.profile]
+            for key in OPTION_NAMES:
+                if key in items:
+                    new_value = input(key + " [" + items[key] + "]: ")
+                    if new_value:
+                        items[key]=new_value
+                else:
+                    value = input(key + " []: ")
+                    items[key]=value
+            with open(NOW_CONFIG, 'w') as configfile:
+                config.write(configfile)            
 
-def create_path():
+def create_path():  
     os.makedirs(NOW_PATH, exist_ok = True)

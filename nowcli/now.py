@@ -9,9 +9,9 @@ import requests
 import urllib3
 
 # Local Modules
-import nowcli.configure as configure
-import nowcli.incident as incident
-import nowcli.event as event
+import configure
+import incident
+import event
 
 def main():
     if args.cmd == "configure":
@@ -38,6 +38,7 @@ im_parser = commands_parser.add_parser('configure', help='configure profile')
 # IM Parser
 im_parser = commands_parser.add_parser('im', help='incident management')
 im_parser.add_argument('get-incidents', help='get incidents')
+im_parser.add_argument('update-incident', help='update incident')
 
 # EM Parser
 em_parser = commands_parser.add_parser('em', help='event management')
