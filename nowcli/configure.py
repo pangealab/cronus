@@ -45,34 +45,43 @@ def edit_config(args):
     config = configparser.ConfigParser()
     config.read(NOW_CONFIG)
 
-    # Edit the DEFAULT section if no profile provided
+    # Edit the DEFAULT section if no PROFILE provided
     if not args.profile:
         defaults = config.defaults()
+        # Run through the STANDARD options
         for key in OPTION_NAMES:
             if key in defaults:
+                # Overwrite with user input
                 new_value = input(key + " [" + defaults[key] + "]: ")
                 if new_value:
                     defaults[key]=new_value
         with open(NOW_CONFIG, 'w') as configfile:
             config.write(configfile)
     else:
+        # Edit the PROFILE section if it exists
         if config.has_section(args.profile):
             items = config[args.profile]
+            # Run through the STANDARD options
             for key in OPTION_NAMES:
                 if key in items:
+                    # Overwrite with user input
                     new_value = input(key + " [" + items[key] + "]: ")
                     if new_value:
                         items[key]=new_value
             with open(NOW_CONFIG, 'w') as configfile:
                 config.write(configfile)
+        # Create the PROFILE section if it does not exists
         else:
             config.add_section(args.profile)
             items = config[args.profile]
+            # Run through the STANDARD options
             for key in OPTION_NAMES:
                 if key in items:
+                    # Overwrite with user input
                     new_value = input(key + " [" + items[key] + "]: ")
                     if new_value:
                         items[key]=new_value
+                # Create new options
                 else:
                     value = input(key + " []: ")
                     items[key]=value
