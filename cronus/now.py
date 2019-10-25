@@ -8,6 +8,10 @@ import argparse
 import requests
 import urllib3
 
+import cronus.configure as configure
+import cronus.event as event
+import cronus.incident as incident
+
 def main():
     if args.cmd == "configure":
         configure.main(args)
