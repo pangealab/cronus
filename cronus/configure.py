@@ -35,9 +35,6 @@ def init_config():
 def edit_config(args):
 
     config = configparser.ConfigParser()
-
-    print("NOW_CONFIG: " + properties.NOW_CONFIG)
-
     config.read(properties.NOW_CONFIG)
 
     # Edit the DEFAULT section if no PROFILE provided
