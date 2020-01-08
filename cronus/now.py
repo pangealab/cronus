@@ -9,12 +9,15 @@ import requests
 import urllib3
 
 import cronus.configure as configure
+import cronus.cmdb as cmdb
 import cronus.event as event
 import cronus.incident as incident
 
 def main():
     if args.cmd == "configure":
         configure.main(args)
+    elif args.cmd == "cmdb":
+	    cmdb.main()        
     elif args.cmd == "im":
 	    incident.main()
     elif args.cmd == "em":
@@ -32,7 +35,11 @@ parser.add_argument('-v','--version', action='version', version=__version__)
 commands_parser = parser.add_subparsers(help='commands', dest='cmd')
 
 # Configure Parser
-im_parser = commands_parser.add_parser('configure', help='configure profile')
+configure_parser = commands_parser.add_parser('configure', help='configure profile')
+
+# CMDB Parser
+cmdb_parser = commands_parser.add_parser('cmdb', help='cmdb')
+cmdb_parser.add_argument('register-services', help='register services')
 
 # IM Parser
 im_parser = commands_parser.add_parser('im', help='incident management')
