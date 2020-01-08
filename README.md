@@ -43,3 +43,9 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     username []: admin
     password []: changeit
     ```
+
+* Register Service
+
+* Create Event
+
+* Resolve Incident
