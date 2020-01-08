@@ -9,7 +9,6 @@ import requests
 import urllib3
 
 # Use these imports when packaged
-# import cronus.config as config
 # import cronus.configure as configure
 # import cronus.cmdb as cmdb
 # import cronus.event as event
