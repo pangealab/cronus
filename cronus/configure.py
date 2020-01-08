@@ -1,16 +1,8 @@
+import properties
 import configparser
 import logging
 import os
 import sys
-
-# Set Vars
-USER_HOME = os.path.expanduser("~")
-NOW_DIR = ".now"
-NOW_FILE = "credentials"
-NOW_PATH = USER_HOME + "/" + NOW_DIR
-NOW_CONFIG = NOW_PATH + "/" + NOW_FILE
-NOW_DEFAULT = "DEFAULT"
-OPTION_NAMES = ['api','http_headers','params','server','username','password']
 
 # Set Logging
 logging.basicConfig(level=logging.INFO)
@@ -18,8 +10,8 @@ logger = logging.getLogger(__name__)
 
 def main(args):
 
-    path_exists = os.path.exists(NOW_PATH)
-    file_exists = os.path.isfile(NOW_CONFIG)
+    path_exists = os.path.exists(properties.NOW_PATH)
+    file_exists = os.path.isfile(properties.NOW_CONFIG)
     
     if not path_exists:
         create_path()
@@ -37,25 +29,28 @@ def init_config():
               'http_headers':'{"Content-Type":"application/json","Accept":"application/json"}',
               'params':'"sysparm_limit=10000"',
                })
-    with open(NOW_CONFIG, 'w') as configfile:
+    with open(properties.NOW_CONFIG, 'w') as configfile:
         config.write(configfile)               
 
 def edit_config(args):
 
     config = configparser.ConfigParser()
-    config.read(NOW_CONFIG)
+
+    print("NOW_CONFIG: " + properties.NOW_CONFIG)
+
+    config.read(properties.NOW_CONFIG)
 
     # Edit the DEFAULT section if no PROFILE provided
     if not args.profile:
         defaults = config.defaults()
         # Run through the STANDARD options
-        for key in OPTION_NAMES:
+        for key in properties.OPTION_NAMES:
             if key in defaults:
                 # Overwrite with user input
                 new_value = input(key + " [" + defaults[key] + "]: ")
                 if new_value:
                     defaults[key]=new_value
-        with open(NOW_CONFIG, 'w') as configfile:
+        with open(properties.NOW_CONFIG, 'w') as configfile:
             config.write(configfile)
     else:
         # Edit the PROFILE section if it exists
@@ -68,14 +63,14 @@ def edit_config(args):
                     new_value = input(key + " [" + items[key] + "]: ")
                     if new_value:
                         items[key]=new_value
-            with open(NOW_CONFIG, 'w') as configfile:
+            with open(properties.NOW_CONFIG, 'w') as configfile:
                 config.write(configfile)
         # Create the PROFILE section if it does not exists
         else:
             config.add_section(args.profile)
             items = config[args.profile]
             # Run through the STANDARD options
-            for key in OPTION_NAMES:
+            for key in properties.OPTION_NAMES:
                 if key in items:
                     # Overwrite with user input
                     new_value = input(key + " [" + items[key] + "]: ")
@@ -85,7 +80,7 @@ def edit_config(args):
                 else:
                     value = input(key + " []: ")
                     items[key]=value
-            with open(NOW_CONFIG, 'w') as configfile:
+            with open(properties.NOW_CONFIG, 'w') as configfile:
                 config.write(configfile)            
 
 def create_path():  
