@@ -44,7 +44,13 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     password []: changeit
     ```
 
-* Register Service
+* Register Service (e.g. startreck.json)
+
+    ```
+    $ now -p newyork -d startreck.json cmdb register-service
+    Called CMDB...
+    {'result': {'code': '200', 'type': 'register_services', 'message': 'Services created in ServiceNow: 4'}}
+    ```
 
 * Create Event
 
