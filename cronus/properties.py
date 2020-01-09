@@ -9,4 +9,9 @@ NOW_FILE = "credentials"
 NOW_PATH = USER_HOME + "/" + NOW_DIR
 NOW_CONFIG = NOW_PATH + "/" + NOW_FILE
 NOW_DEFAULT = "DEFAULT"
-OPTION_NAMES = ['api','http_headers','params','server','username','password']
+OPTION_NAMES = ['table_api','cmdb_api','em_api','server','username','password']
+HEADERS = {"Content-Type":"application/json"}
+
+# CLI APIs
+CLI_API_SR = "/api/x_snc_labs_atlas/v1/register/services"
+CLI_API_EM = "/api/x_snc_labs_atlas/v1/create/event"

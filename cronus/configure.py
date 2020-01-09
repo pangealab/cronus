@@ -26,12 +26,12 @@ def init_config():
 
     # Initialize the parser with defaults
     config = configparser.ConfigParser(
-    defaults={'api':'"/api/now/table"',
-              'http_headers':'{"Content-Type":"application/json","Accept":"application/json"}',
-              'params':'"sysparm_limit=10000"',
+    defaults={'table_api':'/api/now/table',
+              'cmdb_api':'/api/x_snc_labs_atlas/v1/register/services',
+              'em_api':'/api/x_snc_labs_atlas/v1/create/event'
                })
     with open(properties.NOW_CONFIG, 'w') as configfile:
-        config.write(configfile)               
+        config.write(configfile)
 
 def edit_config(args):
 

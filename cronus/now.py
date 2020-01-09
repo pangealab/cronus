@@ -23,10 +23,6 @@ import incident as incident
 # Import Properties
 import properties
 
-
-
-
-
 # Import packages
 import os
 import sys
@@ -35,17 +31,18 @@ def main():
     if args.cmd == "configure":
         configure.main(args)
     elif args.cmd == "cmdb":
-	    cmdb.main()        
+	    cmdb.main(args)        
     elif args.cmd == "im":
-	    incident.main()
+	    incident.main(args)
     elif args.cmd == "em":
-	    event.main()
+	    event.main(args)
     else:
         exit()
     
 # Top Level Parser
 parser = argparse.ArgumentParser(description="ServiceNow (NOW) Command Line Interface (CLI)", prog='now')
 parser.add_argument('-p','--profile', type=str, help='profile')
+parser.add_argument('-d','--data', type=str, help='payload')
 parser.add_argument('-x','--socks5', type=str, help='use SOCKS5 proxy on localhost port 5555')
 parser.add_argument('-v','--version', action='version', version=__version__)
 
