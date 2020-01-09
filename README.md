@@ -55,3 +55,48 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 * Create Event
 
 * Resolve Incident
+
+# Payloads
+
+* startreck.json
+
+    ```
+    {
+    "name": "USS Enteprise NCC-1701",
+    "comments": "NCC-1701 Constitution Class Starship",
+    "services": [{
+            "name": "ncc1701",
+            "uri": "http://ncc1701.net"
+        },
+        {
+            "name": "weapons",
+            "uri": "http://weapons.ncc1701.net"
+        },
+        {
+            "name": "phasers",
+            "uri": "http://phasers.ncc1701.net"
+        },
+        {
+            "name": "lifesuppport",
+            "uri": "http://lifesupport.ncc1701.net"
+        }
+    ],
+    "relationships": [{
+            "parent": null,
+            "child": "ncc1701"
+        },
+        {
+            "parent": "ncc1701",
+            "child": "weapons"
+        },
+        {
+            "parent": "weapons",
+            "child": "phasers"
+        },
+        {
+            "parent": "ncc1701",
+            "child": "lifesuppport"
+        }
+    ]
+    }
+    ```
