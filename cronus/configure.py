@@ -57,7 +57,7 @@ def edit_config(args):
         if config.has_section(args.profile):
             items = config[args.profile]
             # Run through the STANDARD options
-            for key in OPTION_NAMES:
+            for key in properties.OPTION_NAMES:
                 if key in items:
                     # Overwrite with user input
                     new_value = input(key + " [" + items[key] + "]: ")

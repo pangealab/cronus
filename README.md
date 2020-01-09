@@ -36,9 +36,9 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 
     ```
     $ now -p newyork configure
-    api ["/api/now/table"]:
-    http_headers [{"Content-Type":"application/json","Accept":"application/json"}]:
-    params ["sysparm_limit=10000"]:
+    table_api [/api/now/table]:
+    cmdb_api [/api/x_snc_labs_atlas/v1/register/services]: 
+    em_api [/api/x_snc_labs_atlas/v1/create/event]: 
     server []: https://newyorkdemo01.service-now.com
     username []: admin
     password []: changeit
