@@ -1,6 +1,8 @@
-# Gobal Imports
+# Local Imports
+import cronus.properties as properties
+
+# Repo Imports
 import profile
-import properties
 import logging
 import configparser
 

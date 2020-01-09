@@ -13,15 +13,14 @@ import cronus.configure as configure
 import cronus.cmdb as cmdb
 import cronus.event as event
 import cronus.incident as incident
+import cronus.properties as properties
 
 # Use these imports while unpackaged
 # import configure as configure
 # import cmdb as cmdb
 # import event as event
 # import incident as incident
-
-# Import Properties
-import properties
+# import properies as properties
 
 # Import packages
 import os
