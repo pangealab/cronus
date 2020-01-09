@@ -9,16 +9,16 @@ import requests
 import urllib3
 
 # Use these imports when packaged
-# import cronus.configure as configure
-# import cronus.cmdb as cmdb
-# import cronus.event as event
-# import cronus.incident as incident
+import cronus.configure as configure
+import cronus.cmdb as cmdb
+import cronus.event as event
+import cronus.incident as incident
 
 # Use these imports while unpackaged
-import configure as configure
-import cmdb as cmdb
-import event as event
-import incident as incident
+# import configure as configure
+# import cmdb as cmdb
+# import event as event
+# import incident as incident
 
 # Import Properties
 import properties
