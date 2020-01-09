@@ -47,7 +47,7 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 * Register Service (e.g. startreck.json)
 
     ```
-    $ now -p newyork -d startreck.json cmdb register-service
+    $ now -p newyork -d startreck.json cmdb register-services
     Called CMDB...
     {'result': {'code': '200', 'type': 'register_services', 'message': 'Services created in ServiceNow: 4'}}
     ```
