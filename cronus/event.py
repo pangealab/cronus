@@ -1,5 +1,5 @@
 # Local Imports
-import cronus.properties as properties
+from cronus import properties
 
 # Repo Imports
 import profile

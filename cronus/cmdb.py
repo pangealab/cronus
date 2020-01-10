@@ -1,7 +1,6 @@
-
 # Local Imports
-import cronus.properties as properties
-import cronus.profile as profile
+from cronus import properties
+from cronus import profile
 
 # Repo Imports
 import logging
