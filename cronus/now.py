@@ -4,11 +4,11 @@
 __version__ = "1.0.0"
 
 # Local Imports
-import cronus.configure as configure
-import cronus.cmdb as cmdb
-import cronus.event as event
-import cronus.incident as incident
-import cronus.properties as properties
+from cronus import configure
+from cronus import cmdb
+from cronus import event
+from cronus import incident
+from cronus import properties
 
 # Repo Imports
 import os
