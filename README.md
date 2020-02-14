@@ -100,3 +100,49 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     ]
     }
     ```
+
+# Reference
+
+## Python 3
+
+This section describes how to install Python 3.7.2 in Ubuntu 18.04 / 18.10
+
+* Install Python 3
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+    sudo apt install -y python3.7
+    ```
+
+* Install Pip
+
+    ```
+    sudo apt install -y python3-pip
+    ```
+
+* To check versions 
+
+    ```
+    apt list --installed | grep python
+    ```
+
+* Install Unit Tester
+
+    ```
+    pip3 install nose
+    ```
+
+* Install Nose Tester
+sudo apt install python-nose
+
+* Run Unit Tester
+
+    ```
+    nosetests --with-xunit tests/test_project.py
+    ```
+
+* Freeze Requirements
+
+    ```
+    pip3 freeze > requirements.txt
+    ```
