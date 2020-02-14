@@ -133,7 +133,10 @@ This section describes how to install Python 3.7.2 in Ubuntu 18.04 / 18.10
     ```
 
 * Install Nose Tester
-sudo apt install python-nose
+
+    ```
+    sudo apt install python-nose
+    ```
 
 * Run Unit Tester
 
