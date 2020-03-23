@@ -1,12 +1,11 @@
 .PHONY: clean build publish
 
 build: clean
-	python -m pip install --upgrade --quiet setuptools wheel twine
-	python setup.py --quiet sdist bdist_wheel
+	sudo python3 setup.py install
 
 publish: build
-	python -m twine check dist/*
-	python -m twine upload dist/*
+	python3 setup.py sdist
+	twine upload dist/*
 
 clean:
 	rm -r build dist *.egg-info || true
