@@ -53,8 +53,8 @@ setup(
     # https://pypi.org/pypi?%3Aaction=list_classifiers
     license="License :: OSI Approved :: MIT License",
     classifiers=[
-        "Programming Language :: Python",
-        # "Programming Language :: Python :: 3",
+        # "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
         # "Operating System :: OS Independent",
         # "Private :: Do Not Upload"
     ],
