@@ -2,15 +2,20 @@
 
 This project shows you how to set up the **NOW CLI** and use it to interact with a ServiceNow instance either locally from your workstation or from a CI/CD Pipeline like Jenkins
 
+# Prerequisites
+
+* Python3 Installed
+* PiPy Account to deploy package
+
 # Installation
 
 * Clone Project
 
     ```
-    git clone git@github.com:advlab/cronus.git
-    cd cronus
+    git clone git@github.com:advlab/cronus.git nowcli
+    cd nowcli
     ```
-* Install Package
+* Install Package from Source
 
     ```
     sudo python3 setup.py install
@@ -22,6 +27,26 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 
     ```
     sudo pip3 uninstall -y nowcli
+    ```
+
+# Deploy Package to PiPi
+
+* Install Twine
+
+    ```
+    pip3 install twine
+    ```
+
+* Create Source Distribution
+
+    ```
+    python3 setup.py sdist
+    ```
+
+* Deploy Package
+
+    ```
+    twine upload dist/*
     ```
 
 # Operation
