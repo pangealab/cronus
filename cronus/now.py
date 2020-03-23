@@ -42,6 +42,8 @@ commands_parser = parser.add_subparsers(help='commands', dest='cmd')
 
 # Configure Parser
 configure_parser = commands_parser.add_parser('configure', help='configure profile')
+configure_parser.add_argument('-g','--get', help='get a configuration value from the config file')
+configure_parser.add_argument('-s','--set', help='set a configuration value in the config file')
 
 # CMDB Parser
 cmdb_parser = commands_parser.add_parser('cmdb', help='cmdb')

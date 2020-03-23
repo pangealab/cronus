@@ -13,8 +13,17 @@ logger = logging.getLogger(__name__)
 
 def main(args):
 
+    print(args)
+
     path_exists = os.path.exists(properties.NOW_PATH)
     file_exists = os.path.isfile(properties.NOW_CONFIG)
+
+    # Debug Start
+    if args.get:
+        print("Called Get Args...")
+    elif args.set:
+        print("Called Set Args...")
+    # Debug End
     
     if not path_exists:
         create_path()
@@ -81,7 +90,10 @@ def edit_config(args):
                     value = input(key + " []: ")
                     items[key]=value
             with open(properties.NOW_CONFIG, 'w') as configfile:
-                config.write(configfile)            
+                config.write(configfile)
+
+def get_config():
+    print("Called Get...")
 
 def create_path():  
     os.makedirs(NOW_PATH, exist_ok = True)
