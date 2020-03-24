@@ -13,25 +13,24 @@ logger = logging.getLogger(__name__)
 
 def main(args):
 
-    print(args)
-
     path_exists = os.path.exists(properties.NOW_PATH)
     file_exists = os.path.isfile(properties.NOW_CONFIG)
 
-    # Debug Start
-    if args.get:
-        print("Called Get Args...")
-    elif args.set:
-        print("Called Set Args...")
-    # Debug End
-    
     if not path_exists:
         create_path()
 
     if not file_exists:
         init_config()
-    else:
-        edit_config(args)
+    
+    if args.get:
+        get_config(args)
+        exit()
+
+    if args.set:
+        set_config(args)
+        exit()
+
+    edit_config(args)
 
 def init_config():
 
@@ -46,6 +45,7 @@ def init_config():
 
 def edit_config(args):
 
+    # Get Config Parser
     config = configparser.ConfigParser()
     config.read(properties.NOW_CONFIG)
 
@@ -92,8 +92,57 @@ def edit_config(args):
             with open(properties.NOW_CONFIG, 'w') as configfile:
                 config.write(configfile)
 
-def get_config():
-    print("Called Get...")
+def get_config(args):
+
+    # Get Config Parser
+    config = configparser.ConfigParser()
+    config.read(properties.NOW_CONFIG)
+   
+    # Get Section
+    section = args.get.split(".",1)[0]
+
+    # Make DEFAULT section Uppercase
+    if section == 'default':
+        section = section.upper()
+
+    # Get Key and Value
+    key = args.get.split(".",1)[1]
+    value = config.get(section,key)
+
+    # Print Result
+    print(key + " [" + value + "]")
+
+def set_config(args):
+
+    # Get Config Parser
+    config = configparser.ConfigParser()
+    config.read(properties.NOW_CONFIG)
+
+    # Get Section
+    section = args.set.split(".",1)[0]
+
+    # Make DEFAULT section Uppercase
+    if section == 'default':
+        section = section.upper()
+
+    # Create Section if not present
+    if not config.has_section(section):
+        config.add_section(args.profile)
+
+    # Get Key and Value
+    keyvalue = args.set.split(".",1)[1]
+    key = keyvalue.split("=",1)[0]
+    value = keyvalue.split("=",1)[1]
+
+    # Set Config
+    config.set(section, key, value)
+
+    # Save Config
+    with open(properties.NOW_CONFIG, 'w') as configfile:
+                config.write(configfile)
+
+    # Print Result
+    print(key + " [" + value + "]")
 
 def create_path():  
     os.makedirs(NOW_PATH, exist_ok = True)
