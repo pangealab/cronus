@@ -64,9 +64,9 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     table_api [/api/now/table]:
     cmdb_api [/api/x_snc_labs_atlas/v1/register/services]: 
     em_api [/api/x_snc_labs_atlas/v1/create/event]: 
-    server []: https://newyorkdemo01.service-now.com
-    username []: admin
-    password []: changeit
+    server []: YOURSERVERURL
+    username []: YOURUSERID
+    password []: YOURPASSWORD
     ```
 
 * Register Service (e.g. startreck.json)
@@ -81,7 +81,78 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 
 * Resolve Incident
 
-# Payloads
+# Example Payloads
+
+* bookinfo.json
+
+    ```
+    {
+    "name": "Bookworms",
+    "comments": "Bookworms 2019 Reviews",
+    "services": [{
+            "name": "bookinfo",
+            "uri": "http://bookinfo.com"
+        },
+        {
+            "name": "productpage",
+            "uri": "http://bookinfo.com/product"
+        },
+        {
+            "name": "details",
+            "uri": "http://bookinfo.com/details"
+        },
+        {
+            "name": "reviews-v1",
+            "uri": "http://bookinfo.com/reviews-v1"
+        },
+        {
+            "name": "reviews-v2",
+            "uri": "http://bookinfo.com/reviews-v2"
+        },
+        {
+            "name": "reviews-v3",
+            "uri": "http://bookinfo.com/reviews-v3"
+        },
+        {
+            "name": "ratings",
+            "uri": "http://bookinfo.com/ratings"
+        }
+    ],
+    "relationships": [{
+            "parent": null,
+            "child": "bookinfo"
+        },
+        {
+            "parent": "bookinfo",
+            "child": "productpage"
+        },
+        {
+            "parent": "productpage",
+            "child": "reviews-v1"
+        },
+        {
+            "parent": "productpage",
+            "child": "reviews-v2"
+        },
+        {
+            "parent": "productpage",
+            "child": "reviews-v3"
+        },
+        {
+            "parent": "productpage",
+            "child": "details"
+        },
+        {
+            "parent": "reviews-v2",
+            "child": "ratings"
+        },
+        {
+            "parent": "reviews-v3",
+            "child": "ratings"
+        }
+    ]
+    }
+    ```
 
 * startreck.json
 
