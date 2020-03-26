@@ -145,4 +145,4 @@ def set_config(args):
     print(key + " [" + value + "]")
 
 def create_path():  
-    os.makedirs(NOW_PATH, exist_ok = True)
+    os.makedirs(properties.NOW_PATH, exist_ok = True)
