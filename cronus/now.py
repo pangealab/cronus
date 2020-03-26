@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 # Local Imports
 from cronus import configure

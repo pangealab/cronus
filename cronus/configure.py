@@ -17,6 +17,7 @@ def main(args):
     file_exists = os.path.isfile(properties.NOW_CONFIG)
 
     if not path_exists:
+        print ("Called create path...")
         create_path()
 
     if not file_exists:
@@ -127,7 +128,7 @@ def set_config(args):
 
     # Create Section if not present
     if not config.has_section(section):
-        config.add_section(args.profile)
+        config.add_section(section)
 
     # Get Key and Value
     keyvalue = args.set.split(".",1)[1]
