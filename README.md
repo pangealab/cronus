@@ -7,7 +7,15 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 * Python3 Installed
 * PiPy Account to deploy package
 
-# Installation
+# Install
+
+* Install Package using PIP
+
+    ```
+    pip3 install nowcli
+    ```
+
+# Contribute
 
 * Clone Project
 
@@ -15,13 +23,20 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     git clone git@github.com:advlab/cronus.git nowcli
     cd nowcli
     ```
-* Install Package from Source
+
+* Make the appropriate edits
+
+* Run locally to test
+
+    ```
+    python -m cronus COMMANDS
+    ```
+
+* Install Locally to test
 
     ```
     sudo python3 setup.py install
     ```
-
-    > NOTE: Once the package is deployed to the [PyPI](https://pypi.org) repository you can install the latest package using the standard *pip3* command (e.g. `pip3 install nowcli`)
 
 * Uninstall Package
 
@@ -49,7 +64,7 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     twine upload dist/*
     ```
 
-# Operation
+# Usage
 
 * Create default profile in ~/.now/credentials
 
@@ -69,12 +84,12 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
     password []: YOURPASSWORD
     ```
 
-* Register Service (e.g. startreck.json)
+* Register Service (e.g. bookinfo.json)
 
     ```
-    $ now -p newyork -d startreck.json cmdb register-services
+    $ now -p newyork -d bookinfo.json cmdb register-services
     Called CMDB...
-    {'result': {'code': '200', 'type': 'register_services', 'message': 'Services created in ServiceNow: 4'}}
+    {'result': {'code': '200', 'type': 'register_services', 'message': 'Services created in ServiceNow: 7'}}
     ```
 
 * Create Event
