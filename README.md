@@ -1,4 +1,4 @@
-![Intro](docs/now-cli.png)
+![Intro](https://dev.azure.com/nowlab/c8c758a0-ffb7-4049-99fe-6176c9d0b1a0/_apis/git/repositories/6abbad56-47b9-448d-855c-14355a739e2e/items?path=%2Fdocs%2Fnow-cli.png&versionDescriptor%5BversionOptions%5D=0&versionDescriptor%5BversionType%5D=0&versionDescriptor%5Bversion%5D=master&resolveLfs=true&%24format=octetStream&api-version=5.0)
 
 This project shows you how to set up the **NOW CLI** and use it to interact with a ServiceNow instance either locally from your workstation or from a CI/CD Pipeline like Jenkins
 
