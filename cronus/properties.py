@@ -9,5 +9,5 @@ NOW_FILE = "credentials"
 NOW_PATH = USER_HOME + "/" + NOW_DIR
 NOW_CONFIG = NOW_PATH + "/" + NOW_FILE
 NOW_DEFAULT = "DEFAULT"
-OPTION_NAMES = ['table_api','cmdb_api','em_api','server','username','password']
+OPTION_NAMES = ['table_api','cmdb_api','devops_api','server','username','password']
 HEADERS = {"Content-Type":"application/json"}

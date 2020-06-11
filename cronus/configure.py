@@ -39,7 +39,7 @@ def init_config():
     config = configparser.ConfigParser(
     defaults={'table_api':'/api/now/table',
               'cmdb_api':'/api/x_snc_labs_atlas/v1/register/services',
-              'em_api':'/api/x_snc_labs_atlas/v1/create/event'
+              'devops_api':'/api/x_snc_devops/v1/register/tools'
                })
     with open(properties.NOW_CONFIG, 'w') as configfile:
         config.write(configfile)
