@@ -35,13 +35,13 @@ This project shows you how to set up the **NOW CLI** and use it to interact with
 * Install Locally to test
 
     ```
-    sudo python3 setup.py install
+    python3 setup.py install --user
     ```
 
 * Uninstall Package
 
     ```
-    sudo pip3 uninstall -y nowcli
+    pip3 uninstall -y nowcli
     ```
 
 # Deploy Package to PiPi

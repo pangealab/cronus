@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 
 # Local Imports
 from cronus import configure
@@ -15,18 +15,14 @@ import os
 import sys
 import logging
 import argparse
-import requests
-import urllib3
 
 def main():
     if args.cmd == "configure":
         configure.main(args)
     elif args.cmd == "cmdb":
-	    cmdb.main(args)        
-    elif args.cmd == "im":
-	    incident.main(args)
-    elif args.cmd == "em":
-	    event.main(args)
+	    cmdb.main(args)
+    elif args.cmd == "devops":
+	    cmdb.main(args)
     else:
         exit()
     
@@ -50,14 +46,9 @@ configure_group.add_argument('-s','--set', help='set a configuration value in th
 cmdb_parser = commands_parser.add_parser('cmdb', help='cmdb')
 cmdb_parser.add_argument('register-services', help='register services')
 
-# IM Parser
-im_parser = commands_parser.add_parser('im', help='incident management')
-im_parser.add_argument('get-incidents', help='get incidents')
-im_parser.add_argument('update-incident', help='update incident')
-
-# EM Parser
-em_parser = commands_parser.add_parser('em', help='event management')
-em_parser.add_argument('get-events', help='get events')
+# DevOps Parser
+devops_parser = commands_parser.add_parser('devops', help='devops')
+devops_parser.add_argument('register-tools', help='register tools')
 
 # Parse Arguments
 args = parser.parse_args()
