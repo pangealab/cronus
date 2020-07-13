@@ -1,0 +1,24 @@
+{
+  "catalog_name": "Cli2Demo101",
+  "order_data": {
+    "CreateResourceGroup": true,
+    "CliDemo13_adminUsername": "GaneshTest",
+    "CliDemo13_windowsOSVersion": "2012-R2-Datacenter",
+    "CloudAccount": "AzureCA",
+    "CliDemo13_dnsLabelPrefix": "mmwndbp1",
+    "CliDemo13_storageAccountName": "GaneshTest895",
+    "LeaseEndDate": "2020-09-27 14:28:48",
+    "ScheduleProfile": "-- No Schedule --",
+    "UserGroup": "cfcbad03d711110050f5edcb9e61038f",
+    "ScheduleTimeZone": "America/Los_Angeles",
+    "BusinessService": "",
+    "SubscriptionId": "$(context.ServiceAccountID)",
+    "CostCenter": "",
+    "Application": "",
+    "CliDemo13_adminPassword": "$$mEyRjO5vk/VRnK4PvR18Ag==$$",
+    "ResourceGroup": "CliDemo13Gantest1",
+    "StackName": "StackCliDemo13",
+    "Location": "Azure Datacenter - westus",
+    "ResourceGroupName": "DemoStackFromCliRsGrp"
+  }
+}

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-__version__ = "1.0.5"
+__version__ = "1.0.8"
 
 # Local Imports
 from cronus import configure
@@ -9,6 +9,7 @@ from cronus import cmdb
 from cronus import event
 from cronus import incident
 from cronus import properties
+from cronus import cpg
 
 # Repo Imports
 import os
@@ -16,16 +17,19 @@ import sys
 import logging
 import argparse
 
+
 def main():
     if args.cmd == "configure":
         configure.main(args)
     elif args.cmd == "cmdb":
-	    cmdb.main(args)
+        cmdb.main(args)
     elif args.cmd == "devops":
-	    cmdb.main(args)
+        cmdb.main(args)
+    elif args.cmd == "cpg":
+        cpg.main(args)
     else:
         exit()
-    
+
 # Top Level Parser
 parser = argparse.ArgumentParser(description="ServiceNow (NOW) Command Line Interface (CLI)", prog='now')
 parser.add_argument('-p','--profile', type=str, help='profile')
@@ -49,6 +53,17 @@ cmdb_parser.add_argument('register-services', help='register services')
 # DevOps Parser
 devops_parser = commands_parser.add_parser('devops', help='devops')
 devops_parser.add_argument('register-tools', help='register tools')
+
+# CPG Parser
+ActionHelp = """
+    create-catalog = Creates a catalog from given data
+    order-catalog = Order catalog from given catalog id
+    """
+
+cpg_catalog_parser = commands_parser.add_parser('cpg', help='cpg')
+cpg_catalog_parser.add_argument('action', choices=('create-catalog', 'order-catalog', 'check'),help = ActionHelp)
+cpg_catalog_parser.add_argument('--debug', action='store_true' , help='enable debugging')
+
 
 # Parse Arguments
 args = parser.parse_args()

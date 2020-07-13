@@ -1,0 +1,4 @@
+{
+  "template_url": "https://raw.githubusercontent.com/cpgcicd/ArmTemplateRepo/master/azure_windows_vm.json",
+  "catalog_name": "Cli2Demo103"
+}
